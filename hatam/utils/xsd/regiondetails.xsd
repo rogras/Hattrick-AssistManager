@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:element ref="League"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="League">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="LeagueID"/>
+        <xs:element ref="LeagueName"/>
+        <xs:element ref="Region"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeagueID" type="xs:integer"/>
+  <xs:element name="LeagueName" type="xs:NCName"/>
+  <xs:element name="Region">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RegionID"/>
+        <xs:element ref="RegionName"/>
+        <xs:element ref="WeatherID"/>
+        <xs:element ref="TomorrowWeatherID"/>
+        <xs:element ref="NumberOfUsers"/>
+        <xs:element ref="NumberOfOnline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegionID" type="xs:integer"/>
+  <xs:element name="RegionName" type="xs:NCName"/>
+  <xs:element name="WeatherID" type="xs:integer"/>
+  <xs:element name="TomorrowWeatherID" type="xs:integer"/>
+  <xs:element name="NumberOfUsers" type="xs:integer"/>
+  <xs:element name="NumberOfOnline" type="xs:integer"/>
+</xs:schema>

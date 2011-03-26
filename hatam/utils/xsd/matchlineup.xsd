@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:element ref="MatchID"/>
+        <xs:element ref="IsYouth"/>
+        <xs:element ref="MatchType"/>
+        <xs:element ref="MatchDate"/>
+        <xs:element ref="HomeTeam"/>
+        <xs:element ref="AwayTeam"/>
+        <xs:element ref="Arena"/>
+        <xs:element ref="Team"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="MatchID" type="xs:integer"/>
+  <xs:element name="IsYouth" type="xs:NCName"/>
+  <xs:element name="MatchType" type="xs:integer"/>
+  <xs:element name="MatchDate" type="xs:string"/>
+  <xs:element name="HomeTeam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="HomeTeamID"/>
+        <xs:element ref="HomeTeamName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HomeTeamID" type="xs:integer"/>
+  <xs:element name="HomeTeamName" type="xs:NCName"/>
+  <xs:element name="AwayTeam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="AwayTeamID"/>
+        <xs:element ref="AwayTeamName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AwayTeamID" type="xs:integer"/>
+  <xs:element name="AwayTeamName" type="xs:string"/>
+  <xs:element name="Arena">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ArenaID"/>
+        <xs:element ref="ArenaName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ArenaID" type="xs:integer"/>
+  <xs:element name="ArenaName" type="xs:NCName"/>
+  <xs:element name="Team">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TeamID"/>
+        <xs:element ref="TeamName"/>
+        <xs:element ref="ExperienceLevel"/>
+        <xs:element ref="Lineup"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TeamID" type="xs:integer"/>
+  <xs:element name="TeamName" type="xs:string"/>
+  <xs:element name="ExperienceLevel" type="xs:integer"/>
+  <xs:element name="Lineup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Player"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Player">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PlayerID"/>
+        <xs:element ref="RoleID"/>
+        <xs:element ref="PlayerName"/>
+        <xs:element minOccurs="0" ref="RatingStars"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="PositionCode"/>
+          <xs:element ref="Behaviour"/>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlayerID" type="xs:integer"/>
+  <xs:element name="RoleID" type="xs:integer"/>
+  <xs:element name="PlayerName" type="xs:string"/>
+  <xs:element name="RatingStars" type="xs:decimal"/>
+  <xs:element name="PositionCode" type="xs:integer"/>
+  <xs:element name="Behaviour" type="xs:integer"/>
+</xs:schema>

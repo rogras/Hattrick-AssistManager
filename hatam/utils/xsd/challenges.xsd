@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:element ref="Team"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="Team">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TeamID"/>
+        <xs:element ref="TeamName"/>
+        <xs:element ref="ChallengesByMe"/>
+        <xs:element ref="OffersByOthers"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TeamID" type="xs:integer"/>
+  <xs:element name="TeamName" type="xs:string"/>
+  <xs:element name="ChallengesByMe">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="OffersByOthers">
+    <xs:complexType/>
+  </xs:element>
+</xs:schema>

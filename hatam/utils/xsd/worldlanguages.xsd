@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:choice>
+          <xs:element ref="LanguageList"/>
+          <xs:sequence>
+            <xs:element ref="UserIsSupporter"/>
+            <xs:element ref="UserHasClubHouse"/>
+            <xs:element ref="Player"/>
+          </xs:sequence>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="LanguageList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Language"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Language">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="LanguageID"/>
+        <xs:element ref="LanguageName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LanguageID" type="xs:integer"/>
+  <xs:element name="LanguageName" type="xs:string"/>
+  <xs:element name="UserIsSupporter" type="xs:integer"/>
+  <xs:element name="UserHasClubHouse" type="xs:NCName"/>
+  <xs:element name="Player">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PlayerID"/>
+        <xs:element ref="TrainingEvents"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlayerID" type="xs:integer"/>
+  <xs:element name="TrainingEvents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="TrainingEvent"/>
+      </xs:sequence>
+      <xs:attribute name="Available" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TrainingEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="EventDate"/>
+        <xs:element ref="SkillID"/>
+        <xs:element ref="OldLevel"/>
+        <xs:element ref="NewLevel"/>
+        <xs:element ref="Season"/>
+        <xs:element ref="MatchRound"/>
+        <xs:element ref="DayNumber"/>
+      </xs:sequence>
+      <xs:attribute name="Index" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EventDate" type="xs:string"/>
+  <xs:element name="SkillID" type="xs:integer"/>
+  <xs:element name="OldLevel" type="xs:integer"/>
+  <xs:element name="NewLevel" type="xs:integer"/>
+  <xs:element name="Season" type="xs:integer"/>
+  <xs:element name="MatchRound" type="xs:integer"/>
+  <xs:element name="DayNumber" type="xs:integer"/>
+</xs:schema>

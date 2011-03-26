@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:element ref="Team"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="Team">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TeamID"/>
+        <xs:element ref="TeamName"/>
+        <xs:element ref="Cash"/>
+        <xs:element ref="ExpectedCash"/>
+        <xs:element ref="SponsorsPopularity"/>
+        <xs:element ref="SupportersPopularity"/>
+        <xs:element ref="FanClubSize"/>
+        <xs:element ref="IncomeSpectators"/>
+        <xs:element ref="IncomeSponsors"/>
+        <xs:element ref="IncomeFinancial"/>
+        <xs:element ref="IncomeTemporary"/>
+        <xs:element ref="IncomeSum"/>
+        <xs:element ref="CostsArena"/>
+        <xs:element ref="CostsPlayers"/>
+        <xs:element ref="CostsFinancial"/>
+        <xs:element ref="CostsStaff"/>
+        <xs:element ref="CostsTemporary"/>
+        <xs:element ref="CostsYouth"/>
+        <xs:element ref="CostsSum"/>
+        <xs:element ref="ExpectedWeeksTotal"/>
+        <xs:element ref="LastIncomeSpectators"/>
+        <xs:element ref="LastIncomeSponsors"/>
+        <xs:element ref="LastIncomeFinancial"/>
+        <xs:element ref="LastIncomeTemporary"/>
+        <xs:element ref="LastIncomeSum"/>
+        <xs:element ref="LastCostsArena"/>
+        <xs:element ref="LastCostsPlayers"/>
+        <xs:element ref="LastCostsFinancial"/>
+        <xs:element ref="LastCostsStaff"/>
+        <xs:element ref="LastCostsTemporary"/>
+        <xs:element ref="LastCostsYouth"/>
+        <xs:element ref="LastCostsSum"/>
+        <xs:element ref="LastWeeksTotal"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TeamID" type="xs:integer"/>
+  <xs:element name="TeamName" type="xs:string"/>
+  <xs:element name="Cash" type="xs:integer"/>
+  <xs:element name="ExpectedCash" type="xs:integer"/>
+  <xs:element name="SponsorsPopularity">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:integer">
+          <xs:attribute name="Available" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SupportersPopularity">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:integer">
+          <xs:attribute name="Available" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FanClubSize" type="xs:integer"/>
+  <xs:element name="IncomeSpectators" type="xs:integer"/>
+  <xs:element name="IncomeSponsors" type="xs:integer"/>
+  <xs:element name="IncomeFinancial" type="xs:integer"/>
+  <xs:element name="IncomeTemporary" type="xs:integer"/>
+  <xs:element name="IncomeSum" type="xs:integer"/>
+  <xs:element name="CostsArena" type="xs:integer"/>
+  <xs:element name="CostsPlayers" type="xs:integer"/>
+  <xs:element name="CostsFinancial" type="xs:integer"/>
+  <xs:element name="CostsStaff" type="xs:integer"/>
+  <xs:element name="CostsTemporary" type="xs:integer"/>
+  <xs:element name="CostsYouth" type="xs:integer"/>
+  <xs:element name="CostsSum" type="xs:integer"/>
+  <xs:element name="ExpectedWeeksTotal" type="xs:integer"/>
+  <xs:element name="LastIncomeSpectators" type="xs:integer"/>
+  <xs:element name="LastIncomeSponsors" type="xs:integer"/>
+  <xs:element name="LastIncomeFinancial" type="xs:integer"/>
+  <xs:element name="LastIncomeTemporary" type="xs:integer"/>
+  <xs:element name="LastIncomeSum" type="xs:integer"/>
+  <xs:element name="LastCostsArena" type="xs:integer"/>
+  <xs:element name="LastCostsPlayers" type="xs:integer"/>
+  <xs:element name="LastCostsFinancial" type="xs:integer"/>
+  <xs:element name="LastCostsStaff" type="xs:integer"/>
+  <xs:element name="LastCostsTemporary" type="xs:integer"/>
+  <xs:element name="LastCostsYouth" type="xs:integer"/>
+  <xs:element name="LastCostsSum" type="xs:integer"/>
+  <xs:element name="LastWeeksTotal" type="xs:integer"/>
+</xs:schema>

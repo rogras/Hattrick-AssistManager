@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:element ref="UserIsSupporter"/>
+        <xs:element ref="UserHasClubHouse"/>
+        <xs:element ref="Team"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="UserIsSupporter" type="xs:NCName"/>
+  <xs:element name="UserHasClubHouse" type="xs:NCName"/>
+  <xs:element name="Team">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TeamID"/>
+        <xs:element ref="TeamName"/>
+        <xs:element ref="TrainingLevel"/>
+        <xs:element ref="NewTrainingLevel"/>
+        <xs:element ref="TrainingType"/>
+        <xs:element ref="StaminaTrainingPart"/>
+        <xs:element ref="Trainer"/>
+        <xs:element ref="Morale"/>
+        <xs:element ref="SelfConfidence"/>
+        <xs:element ref="Experience433"/>
+        <xs:element ref="Experience451"/>
+        <xs:element ref="Experience352"/>
+        <xs:element ref="Experience532"/>
+        <xs:element ref="Experience343"/>
+        <xs:element ref="Experience541"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TeamID" type="xs:integer"/>
+  <xs:element name="TeamName" type="xs:string"/>
+  <xs:element name="TrainingLevel" type="xs:integer"/>
+  <xs:element name="NewTrainingLevel">
+    <xs:complexType>
+      <xs:attribute name="Available" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TrainingType" type="xs:integer"/>
+  <xs:element name="StaminaTrainingPart" type="xs:integer"/>
+  <xs:element name="Trainer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TrainerID"/>
+        <xs:element ref="TrainerName"/>
+        <xs:element ref="ArrivalDate"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TrainerID" type="xs:integer"/>
+  <xs:element name="TrainerName" type="xs:string"/>
+  <xs:element name="ArrivalDate" type="xs:string"/>
+  <xs:element name="Morale">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:integer">
+          <xs:attribute name="Available" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelfConfidence">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:integer">
+          <xs:attribute name="Available" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Experience433" type="xs:integer"/>
+  <xs:element name="Experience451" type="xs:integer"/>
+  <xs:element name="Experience352" type="xs:integer"/>
+  <xs:element name="Experience532" type="xs:integer"/>
+  <xs:element name="Experience343" type="xs:integer"/>
+  <xs:element name="Experience541" type="xs:integer"/>
+</xs:schema>

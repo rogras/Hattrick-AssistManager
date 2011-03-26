@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:element ref="BookmarkList"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="BookmarkList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Bookmark"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Bookmark">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="BookmarkID"/>
+        <xs:element ref="BookmarkTypeID"/>
+        <xs:element ref="Text"/>
+        <xs:element ref="Text2"/>
+        <xs:element ref="ObjectID"/>
+        <xs:element ref="ObjectID2"/>
+        <xs:element ref="ObjectID3"/>
+        <xs:element ref="Comment"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BookmarkID" type="xs:integer"/>
+  <xs:element name="BookmarkTypeID" type="xs:integer"/>
+  <xs:element name="Text" type="xs:string"/>
+  <xs:element name="Text2" type="xs:string"/>
+  <xs:element name="ObjectID" type="xs:integer"/>
+  <xs:element name="ObjectID2" type="xs:string"/>
+  <xs:element name="ObjectID3">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="Comment">
+    <xs:complexType/>
+  </xs:element>
+</xs:schema>

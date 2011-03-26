@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:element ref="UserIsSupporter"/>
+        <xs:element ref="IsYouth"/>
+        <xs:element ref="UserHasClubHouse"/>
+        <xs:element ref="Player"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="UserIsSupporter" type="xs:integer"/>
+  <xs:element name="IsYouth" type="xs:NCName"/>
+  <xs:element name="UserHasClubHouse" type="xs:integer"/>
+  <xs:element name="Player">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PlayerID"/>
+        <xs:element ref="PlayerName"/>
+        <xs:element ref="PlayerNumber"/>
+        <xs:element ref="Age"/>
+        <xs:element ref="AgeDays"/>
+        <xs:element ref="PlayerForm"/>
+        <xs:element ref="Cards"/>
+        <xs:element ref="InjuryLevel"/>
+        <xs:element ref="Statement"/>
+        <xs:element ref="PlayerLanguage"/>
+        <xs:element ref="TrainerData"/>
+        <xs:element ref="OwningTeam"/>
+        <xs:element ref="Salary"/>
+        <xs:element ref="IsAbroad"/>
+        <xs:element ref="Agreeability"/>
+        <xs:element ref="Aggressiveness"/>
+        <xs:element ref="Honesty"/>
+        <xs:element ref="Experience"/>
+        <xs:element ref="Leadership"/>
+        <xs:element ref="Specialty"/>
+        <xs:element ref="NativeLeagueID"/>
+        <xs:element ref="NativeLeagueName"/>
+        <xs:element ref="TSI"/>
+        <xs:element ref="PlayerSkills"/>
+        <xs:element ref="Caps"/>
+        <xs:element ref="CapsU20"/>
+        <xs:element ref="CareerGoals"/>
+        <xs:element ref="CareerHattricks"/>
+        <xs:element ref="LeagueGoals"/>
+        <xs:element ref="CupGoals"/>
+        <xs:element ref="TransferListed"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlayerID" type="xs:integer"/>
+  <xs:element name="PlayerName" type="xs:string"/>
+  <xs:element name="PlayerNumber" type="xs:integer"/>
+  <xs:element name="Age" type="xs:integer"/>
+  <xs:element name="AgeDays" type="xs:integer"/>
+  <xs:element name="PlayerForm" type="xs:integer"/>
+  <xs:element name="Cards" type="xs:integer"/>
+  <xs:element name="InjuryLevel" type="xs:integer"/>
+  <xs:element name="Statement">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="PlayerLanguage" type="xs:NCName"/>
+  <xs:element name="TrainerData">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="OwningTeam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TeamID"/>
+        <xs:element ref="TeamName"/>
+        <xs:element ref="LeagueID"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TeamID" type="xs:integer"/>
+  <xs:element name="TeamName" type="xs:string"/>
+  <xs:element name="LeagueID" type="xs:integer"/>
+  <xs:element name="Salary" type="xs:integer"/>
+  <xs:element name="IsAbroad" type="xs:integer"/>
+  <xs:element name="Agreeability" type="xs:integer"/>
+  <xs:element name="Aggressiveness" type="xs:integer"/>
+  <xs:element name="Honesty" type="xs:integer"/>
+  <xs:element name="Experience" type="xs:integer"/>
+  <xs:element name="Leadership" type="xs:integer"/>
+  <xs:element name="Specialty" type="xs:integer"/>
+  <xs:element name="NativeLeagueID" type="xs:integer"/>
+  <xs:element name="NativeLeagueName" type="xs:string"/>
+  <xs:element name="TSI" type="xs:integer"/>
+  <xs:element name="PlayerSkills">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="StaminaSkill"/>
+        <xs:element ref="KeeperSkill"/>
+        <xs:element ref="PlaymakerSkill"/>
+        <xs:element ref="ScorerSkill"/>
+        <xs:element ref="PassingSkill"/>
+        <xs:element ref="WingerSkill"/>
+        <xs:element ref="DefenderSkill"/>
+        <xs:element ref="SetPiecesSkill"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StaminaSkill" type="xs:integer"/>
+  <xs:element name="KeeperSkill" type="xs:integer"/>
+  <xs:element name="PlaymakerSkill" type="xs:integer"/>
+  <xs:element name="ScorerSkill" type="xs:integer"/>
+  <xs:element name="PassingSkill" type="xs:integer"/>
+  <xs:element name="WingerSkill" type="xs:integer"/>
+  <xs:element name="DefenderSkill" type="xs:integer"/>
+  <xs:element name="SetPiecesSkill" type="xs:integer"/>
+  <xs:element name="Caps" type="xs:integer"/>
+  <xs:element name="CapsU20" type="xs:integer"/>
+  <xs:element name="CareerGoals" type="xs:integer"/>
+  <xs:element name="CareerHattricks" type="xs:integer"/>
+  <xs:element name="LeagueGoals" type="xs:integer"/>
+  <xs:element name="CupGoals" type="xs:integer"/>
+  <xs:element name="TransferListed" type="xs:integer"/>
+</xs:schema>

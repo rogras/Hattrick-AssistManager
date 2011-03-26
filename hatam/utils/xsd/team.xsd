@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:element ref="User"/>
+        <xs:element ref="Team"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="User">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="UserID"/>
+        <xs:element ref="Language"/>
+        <xs:element ref="HasSupporter"/>
+        <xs:element ref="Loginname"/>
+        <xs:element ref="Name"/>
+        <xs:element ref="ICQ"/>
+        <xs:element ref="SignupDate"/>
+        <xs:element ref="ActivationDate"/>
+        <xs:element ref="LastLoginDate"/>
+        <xs:element ref="NationalTeamCoach"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Language">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="LanguageID"/>
+        <xs:element ref="LanguageName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LanguageID" type="xs:integer"/>
+  <xs:element name="LanguageName" type="xs:NCName"/>
+  <xs:element name="HasSupporter" type="xs:NCName"/>
+  <xs:element name="Loginname" type="xs:NCName"/>
+  <xs:element name="Name" type="xs:NCName"/>
+  <xs:element name="ICQ">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="SignupDate" type="xs:string"/>
+  <xs:element name="ActivationDate" type="xs:string"/>
+  <xs:element name="LastLoginDate" type="xs:string"/>
+  <xs:element name="NationalTeamCoach">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="Team">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TeamID"/>
+        <xs:element ref="TeamName"/>
+        <xs:element ref="ShortTeamName"/>
+        <xs:element ref="Arena"/>
+        <xs:element ref="League"/>
+        <xs:element ref="Region"/>
+        <xs:element ref="Trainer"/>
+        <xs:element ref="HomePage"/>
+        <xs:element ref="DressURI"/>
+        <xs:element ref="DressAlternateURI"/>
+        <xs:element ref="LeagueLevelUnit"/>
+        <xs:element ref="BotStatus"/>
+        <xs:element ref="Cup"/>
+        <xs:element ref="FriendlyTeamID"/>
+        <xs:element ref="NumberOfVictories"/>
+        <xs:element ref="NumberOfUndefeated"/>
+        <xs:element ref="TeamRank"/>
+        <xs:element ref="LogoURL"/>
+        <xs:element ref="Fanclub"/>
+        <xs:element ref="Guestbook"/>
+        <xs:element ref="PressAnnouncement"/>
+        <xs:element ref="YouthTeamID"/>
+        <xs:element ref="YouthTeamName"/>
+        <xs:element ref="NumberOfVisits"/>
+        <xs:element ref="Flags"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TeamID" type="xs:integer"/>
+  <xs:element name="TeamName" type="xs:string"/>
+  <xs:element name="ShortTeamName" type="xs:NCName"/>
+  <xs:element name="Arena">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ArenaID"/>
+        <xs:element ref="ArenaName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ArenaID" type="xs:integer"/>
+  <xs:element name="ArenaName" type="xs:NCName"/>
+  <xs:element name="League">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="LeagueID"/>
+        <xs:element ref="LeagueName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeagueID" type="xs:integer"/>
+  <xs:element name="Region">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RegionID"/>
+        <xs:element ref="RegionName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegionID" type="xs:integer"/>
+  <xs:element name="RegionName" type="xs:NCName"/>
+  <xs:element name="Trainer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PlayerID"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlayerID" type="xs:integer"/>
+  <xs:element name="HomePage">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="DressURI" type="xs:anyURI"/>
+  <xs:element name="DressAlternateURI" type="xs:anyURI"/>
+  <xs:element name="LeagueLevelUnit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="LeagueLevelUnitID"/>
+        <xs:element ref="LeagueLevelUnitName"/>
+        <xs:element ref="LeagueLevel"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeagueLevelUnitID" type="xs:integer"/>
+  <xs:element name="LeagueLevelUnitName" type="xs:NCName"/>
+  <xs:element name="LeagueLevel" type="xs:integer"/>
+  <xs:element name="BotStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="IsBot"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsBot" type="xs:NCName"/>
+  <xs:element name="Cup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="StillInCup"/>
+        <xs:element ref="CupID"/>
+        <xs:element ref="CupName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StillInCup" type="xs:NCName"/>
+  <xs:element name="CupID" type="xs:integer"/>
+  <xs:element name="CupName" type="xs:string"/>
+  <xs:element name="FriendlyTeamID" type="xs:integer"/>
+  <xs:element name="NumberOfVictories" type="xs:integer"/>
+  <xs:element name="NumberOfUndefeated" type="xs:integer"/>
+  <xs:element name="TeamRank" type="xs:integer"/>
+  <xs:element name="LogoURL">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="Fanclub">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FanclubID"/>
+        <xs:element ref="FanclubName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FanclubID" type="xs:integer"/>
+  <xs:element name="FanclubName" type="xs:string"/>
+  <xs:element name="Guestbook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="NumberOfGuestbookItems"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumberOfGuestbookItems" type="xs:integer"/>
+  <xs:element name="PressAnnouncement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Subject"/>
+        <xs:element ref="Body"/>
+        <xs:element ref="SendDate"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Subject" type="xs:NCName"/>
+  <xs:element name="Body" type="xs:string"/>
+  <xs:element name="SendDate" type="xs:string"/>
+  <xs:element name="YouthTeamID" type="xs:integer"/>
+  <xs:element name="YouthTeamName" type="xs:string"/>
+  <xs:element name="NumberOfVisits" type="xs:integer"/>
+  <xs:element name="Flags">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="AwayFlags"/>
+        <xs:element ref="HomeFlags"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AwayFlags">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Flag"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Flag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="LeagueId"/>
+        <xs:element ref="LeagueName"/>
+        <xs:element ref="CountryCode"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeagueId" type="xs:integer"/>
+  <xs:element name="CountryCode" type="xs:NCName"/>
+  <xs:element name="HomeFlags">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="LeagueName" type="xs:NCName"/>
+</xs:schema>

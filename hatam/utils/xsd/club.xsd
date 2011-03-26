@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:element ref="Team"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="Team">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TeamID"/>
+        <xs:element ref="TeamName"/>
+        <xs:element ref="Specialists"/>
+        <xs:element ref="YouthSquad"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TeamID" type="xs:integer"/>
+  <xs:element name="TeamName" type="xs:string"/>
+  <xs:element name="Specialists">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="KeeperTrainers"/>
+        <xs:element ref="AssistantTrainers"/>
+        <xs:element ref="Psychologists"/>
+        <xs:element ref="PressSpokesmen"/>
+        <xs:element ref="Economists"/>
+        <xs:element ref="Physiotherapists"/>
+        <xs:element ref="Doctors"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KeeperTrainers" type="xs:integer"/>
+  <xs:element name="AssistantTrainers" type="xs:integer"/>
+  <xs:element name="Psychologists" type="xs:integer"/>
+  <xs:element name="PressSpokesmen" type="xs:integer"/>
+  <xs:element name="Economists" type="xs:integer"/>
+  <xs:element name="Physiotherapists" type="xs:integer"/>
+  <xs:element name="Doctors" type="xs:integer"/>
+  <xs:element name="YouthSquad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Investment"/>
+        <xs:element ref="HasPromoted"/>
+        <xs:element ref="YouthLevel"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Investment" type="xs:integer"/>
+  <xs:element name="HasPromoted" type="xs:NCName"/>
+  <xs:element name="YouthLevel" type="xs:integer"/>
+</xs:schema>

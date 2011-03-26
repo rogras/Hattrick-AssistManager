@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:element ref="MaxPoints"/>
+        <xs:element ref="AchievementList"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="MaxPoints" type="xs:integer"/>
+  <xs:element name="AchievementList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Achievement"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Achievement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="AchievementTypeID"/>
+        <xs:element ref="AchievementText"/>
+        <xs:element ref="CategoryID"/>
+        <xs:element ref="EventDate"/>
+        <xs:element ref="Points"/>
+        <xs:element ref="MultiLevel"/>
+        <xs:element ref="NumberOfEvents"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AchievementTypeID" type="xs:integer"/>
+  <xs:element name="AchievementText" type="xs:string"/>
+  <xs:element name="CategoryID" type="xs:integer"/>
+  <xs:element name="EventDate" type="xs:string"/>
+  <xs:element name="Points" type="xs:integer"/>
+  <xs:element name="MultiLevel" type="xs:NCName"/>
+  <xs:element name="NumberOfEvents" type="xs:integer"/>
+</xs:schema>

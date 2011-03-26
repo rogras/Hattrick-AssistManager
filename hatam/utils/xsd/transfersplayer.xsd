@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:choice>
+          <xs:element ref="Transfers"/>
+          <xs:sequence>
+            <xs:element ref="UserIsSupporter"/>
+            <xs:element ref="UserHasClubHouse"/>
+            <xs:element ref="Player"/>
+          </xs:sequence>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="Transfers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="StartDate"/>
+        <xs:element ref="EndDate"/>
+        <xs:element ref="Player"/>
+        <xs:element maxOccurs="unbounded" ref="Transfer"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartDate" type="xs:string"/>
+  <xs:element name="EndDate" type="xs:string"/>
+  <xs:element name="Transfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TransferID"/>
+        <xs:element ref="Deadline"/>
+        <xs:element ref="Buyer"/>
+        <xs:element ref="Seller"/>
+        <xs:element ref="Price"/>
+        <xs:element ref="TSI"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferID" type="xs:integer"/>
+  <xs:element name="Deadline" type="xs:string"/>
+  <xs:element name="Buyer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="BuyerTeamID"/>
+        <xs:element ref="BuyerTeamName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyerTeamID" type="xs:integer"/>
+  <xs:element name="BuyerTeamName" type="xs:string"/>
+  <xs:element name="Seller">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="SellerTeamID"/>
+        <xs:element ref="SellerTeamName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SellerTeamID" type="xs:integer"/>
+  <xs:element name="SellerTeamName" type="xs:string"/>
+  <xs:element name="Price" type="xs:integer"/>
+  <xs:element name="TSI" type="xs:integer"/>
+  <xs:element name="UserIsSupporter" type="xs:integer"/>
+  <xs:element name="UserHasClubHouse" type="xs:NCName"/>
+  <xs:element name="Player">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PlayerID"/>
+        <xs:choice>
+          <xs:element ref="TrainingEvents"/>
+          <xs:sequence>
+            <xs:element ref="PlayerName"/>
+            <xs:element ref="TeamId"/>
+          </xs:sequence>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlayerID" type="xs:integer"/>
+  <xs:element name="TrainingEvents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="TrainingEvent"/>
+      </xs:sequence>
+      <xs:attribute name="Available" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TrainingEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="EventDate"/>
+        <xs:element ref="SkillID"/>
+        <xs:element ref="OldLevel"/>
+        <xs:element ref="NewLevel"/>
+        <xs:element ref="Season"/>
+        <xs:element ref="MatchRound"/>
+        <xs:element ref="DayNumber"/>
+      </xs:sequence>
+      <xs:attribute name="Index" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EventDate" type="xs:string"/>
+  <xs:element name="SkillID" type="xs:integer"/>
+  <xs:element name="OldLevel" type="xs:integer"/>
+  <xs:element name="NewLevel" type="xs:integer"/>
+  <xs:element name="Season" type="xs:integer"/>
+  <xs:element name="MatchRound" type="xs:integer"/>
+  <xs:element name="DayNumber" type="xs:integer"/>
+  <xs:element name="PlayerName" type="xs:string"/>
+  <xs:element name="TeamId" type="xs:integer"/>
+</xs:schema>

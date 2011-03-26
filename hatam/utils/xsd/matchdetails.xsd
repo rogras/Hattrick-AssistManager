@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HattrickData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="UserID"/>
+        <xs:element ref="FetchedDate"/>
+        <xs:element ref="UserIsSupporter"/>
+        <xs:element ref="UserHasClubHouse"/>
+        <xs:element ref="IsYouth"/>
+        <xs:element ref="Match"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="Version" type="xs:decimal"/>
+  <xs:element name="UserID" type="xs:integer"/>
+  <xs:element name="FetchedDate" type="xs:string"/>
+  <xs:element name="UserIsSupporter" type="xs:integer"/>
+  <xs:element name="UserHasClubHouse" type="xs:integer"/>
+  <xs:element name="IsYouth" type="xs:NCName"/>
+  <xs:element name="Match">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="MatchID"/>
+        <xs:element ref="MatchType"/>
+        <xs:element ref="MatchDate"/>
+        <xs:element ref="FinishedDate"/>
+        <xs:element ref="HomeTeam"/>
+        <xs:element ref="AwayTeam"/>
+        <xs:element ref="Arena"/>
+        <xs:element ref="Scorers"/>
+        <xs:element ref="Bookings"/>
+        <xs:element ref="PossessionFirstHalfHome"/>
+        <xs:element ref="PossessionFirstHalfAway"/>
+        <xs:element ref="PossessionSecondHalfHome"/>
+        <xs:element ref="PossessionSecondHalfAway"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatchID" type="xs:integer"/>
+  <xs:element name="MatchType" type="xs:integer"/>
+  <xs:element name="MatchDate" type="xs:string"/>
+  <xs:element name="FinishedDate" type="xs:string"/>
+  <xs:element name="HomeTeam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="HomeTeamID"/>
+        <xs:element ref="HomeTeamName"/>
+        <xs:element ref="Dress"/>
+        <xs:element ref="HomeGoals"/>
+        <xs:element ref="TacticType"/>
+        <xs:element ref="TacticSkill"/>
+        <xs:element ref="RatingMidfield"/>
+        <xs:element ref="RatingRightDef"/>
+        <xs:element ref="RatingMidDef"/>
+        <xs:element ref="RatingLeftDef"/>
+        <xs:element ref="RatingRightAtt"/>
+        <xs:element ref="RatingMidAtt"/>
+        <xs:element ref="RatingLeftAtt"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HomeTeamID" type="xs:integer"/>
+  <xs:element name="HomeTeamName" type="xs:NCName"/>
+  <xs:element name="HomeGoals" type="xs:integer"/>
+  <xs:element name="AwayTeam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="AwayTeamID"/>
+        <xs:element ref="AwayTeamName"/>
+        <xs:element ref="Dress"/>
+        <xs:element ref="AwayGoals"/>
+        <xs:element ref="TacticType"/>
+        <xs:element ref="TacticSkill"/>
+        <xs:element ref="RatingMidfield"/>
+        <xs:element ref="RatingRightDef"/>
+        <xs:element ref="RatingMidDef"/>
+        <xs:element ref="RatingLeftDef"/>
+        <xs:element ref="RatingRightAtt"/>
+        <xs:element ref="RatingMidAtt"/>
+        <xs:element ref="RatingLeftAtt"/>
+        <xs:element ref="TeamAttitude"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AwayTeamID" type="xs:integer"/>
+  <xs:element name="AwayTeamName" type="xs:string"/>
+  <xs:element name="AwayGoals" type="xs:integer"/>
+  <xs:element name="TeamAttitude" type="xs:integer"/>
+  <xs:element name="Arena">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ArenaID"/>
+        <xs:element ref="ArenaName"/>
+        <xs:element ref="WeatherID"/>
+        <xs:element ref="SoldTotal"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ArenaID" type="xs:integer"/>
+  <xs:element name="ArenaName" type="xs:NCName"/>
+  <xs:element name="WeatherID" type="xs:integer"/>
+  <xs:element name="SoldTotal" type="xs:integer"/>
+  <xs:element name="Scorers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Goal"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Goal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ScorerPlayerID"/>
+        <xs:element ref="ScorerPlayerName"/>
+        <xs:element ref="ScorerTeamID"/>
+        <xs:element ref="ScorerHomeGoals"/>
+        <xs:element ref="ScorerAwayGoals"/>
+        <xs:element ref="ScorerMinute"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScorerPlayerID" type="xs:integer"/>
+  <xs:element name="ScorerPlayerName" type="xs:string"/>
+  <xs:element name="ScorerTeamID" type="xs:integer"/>
+  <xs:element name="ScorerHomeGoals" type="xs:integer"/>
+  <xs:element name="ScorerAwayGoals" type="xs:integer"/>
+  <xs:element name="ScorerMinute" type="xs:integer"/>
+  <xs:element name="Bookings">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="PossessionFirstHalfHome" type="xs:integer"/>
+  <xs:element name="PossessionFirstHalfAway" type="xs:integer"/>
+  <xs:element name="PossessionSecondHalfHome" type="xs:integer"/>
+  <xs:element name="PossessionSecondHalfAway" type="xs:integer"/>
+  <xs:element name="Dress" type="xs:NCName"/>
+  <xs:element name="TacticType" type="xs:integer"/>
+  <xs:element name="TacticSkill" type="xs:integer"/>
+  <xs:element name="RatingMidfield" type="xs:integer"/>
+  <xs:element name="RatingRightDef" type="xs:integer"/>
+  <xs:element name="RatingMidDef" type="xs:integer"/>
+  <xs:element name="RatingLeftDef" type="xs:integer"/>
+  <xs:element name="RatingRightAtt" type="xs:integer"/>
+  <xs:element name="RatingMidAtt" type="xs:integer"/>
+  <xs:element name="RatingLeftAtt" type="xs:integer"/>
+</xs:schema>
