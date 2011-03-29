@@ -1,44 +1,26 @@
 package controllers;
 
-import java.net.URLEncoder;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
 
-import play.Logger;
-import play.libs.OAuth;
-import play.libs.OAuth.ServiceInfo;
-import play.libs.OAuth.TokenPair;
-import play.libs.WS;
-import play.libs.WS.HttpResponse;
-import play.mvc.Controller;
-import play.mvc.Scope.Params;
+import models.UserOauth;
 
 import org.w3c.dom.Document;
-import org.dom4j.io.OutputFormat;
-import org.dom4j.io.XMLWriter;
 
+import play.libs.OAuth;
+import play.libs.WS;
+import play.libs.XML;
+import play.libs.OAuth.TokenPair;
+import play.mvc.Controller;
 import dictionary.Dictionary;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.DocumentBuilder;
-
-import models.User;
-
 public class Application extends Controller {
-
-//request token url https://chpp.hattrick.org/oauth/request_token.ashx
-//access token url https://chpp.hattrick.org/oauth/access_token.ashx
-//authorize url https://chpp.hattrick.org/oauth/authorize.aspx
-//consumer key XQ5GKRYJNwkBhpRW4Diu3z
-//consumer secret xddcH8zTwSEjHhdyv6IEiR+Qv44xwidDRqT4GML7V32
-
-//protected source http://chpp.hattrick.org/chppxml.ashx
-
     
 
     public static void index() {
-        String url = "http://chpp.hattrick.org/chppxml.ashx";
         String mentions = "";
         try {
-            mentions = WS.url(url).oauth(Dictionary.HATTRICK, getUser().getTokenPair()).get().getString();
+            mentions = WS.url(Dictionary.URL).oauth(Dictionary.HATTRICK, getUser().getTokenPair()).get().getString();
 	System.out.println("mentins: "+mentions);
         } catch(Exception e) {
             // User is not authentified
@@ -226,8 +208,9 @@ public static void matches() {
         renderJSON(mentions);
     }
 
-public static void matchdetails() {
-        String url = "http://chpp.hattrick.org/chppxml.ashx?file=matchdetails&matchid=305354265";
+public static void matchdetails(String matchId) {
+	//305354265
+        String url = "http://chpp.hattrick.org/chppxml.ashx?file=matchdetails&matchid="+matchId;
         String mentions = "";
         try {
             mentions = WS.url(url).oauth(Dictionary.HATTRICK, getUser().getTokenPair()).get().getString();
@@ -256,8 +239,8 @@ public static void matchesarchive() {
         renderJSON(mentions);
     }
 
-public static void matchlineup() {
-        String url = "http://chpp.hattrick.org/chppxml.ashx?file=matchlineup&matchid=305354265";
+public static void matchlineup(String matchId) {
+        String url = "http://chpp.hattrick.org/chppxml.ashx?file=matchlineup&matchid="+matchId;
         String mentions = "";
         try {
             mentions = WS.url(url).oauth(Dictionary.HATTRICK, getUser().getTokenPair()).get().getString();
@@ -271,8 +254,8 @@ public static void matchlineup() {
         renderJSON(mentions);
     }
 
-public static void matchorders() {
-        String url = "http://chpp.hattrick.org/chppxml.ashx?file=matchorders&matchid=305354265";
+public static void matchorders(String matchId) {
+        String url = "http://chpp.hattrick.org/chppxml.ashx?file=matchorders&matchid="+matchId;
         String mentions = "";
         try {
             mentions = WS.url(url).oauth(Dictionary.HATTRICK, getUser().getTokenPair()).get().getString();
@@ -301,8 +284,8 @@ public static void players() {
         renderJSON(mentions);
     }
 
-public static void playerdetails() {
-        String url = "http://chpp.hattrick.org/chppxml.ashx?file=playerdetails&playerId=275146313";
+public static void playerdetails(String playerId) {
+        String url = "http://chpp.hattrick.org/chppxml.ashx?file=playerdetails&playerId="+playerId;
         String mentions = "";
         try {
             mentions = WS.url(url).oauth(Dictionary.HATTRICK, getUser().getTokenPair()).get().getString();
@@ -316,8 +299,8 @@ public static void playerdetails() {
         renderJSON(mentions);
     }
 
-public static void playerevents() {
-        String url = "http://chpp.hattrick.org/chppxml.ashx?file=playerevents&playerId=275146313";
+public static void playerevents(String playerId) {
+        String url = "http://chpp.hattrick.org/chppxml.ashx?file=playerevents&playerId="+playerId;
         String mentions = "";
         try {
             mentions = WS.url(url).oauth(Dictionary.HATTRICK, getUser().getTokenPair()).get().getString();
@@ -363,17 +346,31 @@ public static void search() {
 
     public static void team() {
         String url = "http://chpp.hattrick.org/chppxml.ashx?file=teamdetails&version=2.4";
-        String mentions = "";
+        String mentions = null;
+        Document mention = null;
         try {
             mentions = WS.url(url).oauth(Dictionary.HATTRICK, getUser().getTokenPair()).get().getString();
-
-	System.out.println("mentins: "+mentions);
-        //request.current().contentType = "application/json";
-        //renderText(mentions);
+            
+            
+            System.out.println("mentins: "+mentions);
+            mention = XML.getDocument(mentions);
+            System.out.println("jaxb ");
+		JAXBContext jc = JAXBContext.newInstance( "models.teamdetails" );
+		System.out.println("jaxb context ");
+		Unmarshaller um = jc.createUnmarshaller();
+		System.out.println("unmarsh ");
+    
+		models.teamdetails.HattrickData hattrickData = (models.teamdetails.HattrickData)	um.unmarshal( mention);
+		System.out.println("jaxb after unmarch ");
+		System.out.println("teamname "+hattrickData.getTeam().getTeamName());
+		System.out.println("teamname unmarsh ");
+		
+		
         } catch(Exception e) {
             // User is not authentified
+        	e.printStackTrace();
         }
-        renderJSON(mentions);
+        render(mention);
     }
 
     public static void training() {
@@ -391,8 +388,8 @@ public static void search() {
         renderJSON(mentions);
     }
 
-    public static void trainingevents() {
-        String url = "http://chpp.hattrick.org/chppxml.ashx?file=trainingevents&playerId=275146313";
+    public static void trainingevents(String playerId) {
+        String url = "http://chpp.hattrick.org/chppxml.ashx?file=trainingevents&playerId="+playerId;
         String mentions = "";
         try {
             mentions = WS.url(url).oauth(Dictionary.HATTRICK, getUser().getTokenPair()).get().getString();
@@ -421,8 +418,8 @@ public static void search() {
         renderJSON(mentions);
     }
 
-    public static void transfersplayer() {
-        String url = "http://chpp.hattrick.org/chppxml.ashx?file=transfersplayer&playerId=275146313";
+    public static void transfersplayer(String playerId) {
+        String url = "http://chpp.hattrick.org/chppxml.ashx?file=transfersplayer&playerId="+playerId;
         String mentions = "";
         try {
             mentions = WS.url(url).oauth(Dictionary.HATTRICK, getUser().getTokenPair()).get().getString();
@@ -451,15 +448,7 @@ public static void search() {
         renderJSON(mentions);
     }
 
-    public static void setStatus(String status) throws Exception {
-        String url = "http://twitter.com/statuses/update.json?status=" + URLEncoder.encode(status, "utf-8");
-        String response = WS.url(url).oauth(Dictionary.HATTRICK, getUser().getTokenPair()).post().getString();
-        request.current().contentType = "application/json";
-        renderText(response);
-    }
-
-    // Hattrick authentication
-
+    // Hattrick authentications
     public static void authenticate() {
         if (OAuth.isVerifierResponse()) {
             // We got the verifier; now get the access token, store it and back to index
@@ -467,15 +456,15 @@ public static void search() {
             getUser().setTokenPair(tokens);
             index();
         }
-        OAuth twitt = OAuth.service(Dictionary.HATTRICK);
-        TokenPair tokens = twitt.requestUnauthorizedToken();
+        OAuth hatt = OAuth.service(Dictionary.HATTRICK);
+        TokenPair tokens = hatt.requestUnauthorizedToken();
         // We received the unauthorized tokens in the OAuth object - store it before we proceed
         getUser().setTokenPair(tokens);
-        redirect(twitt.redirectUrl(tokens));
+        redirect(hatt.redirectUrl(tokens));
     }
 
-    public static User getUser() {
-        return User.findOrCreate("guest");
+    public static UserOauth getUser() {
+        return UserOauth.findOrCreate("guest");
     }
 
 }

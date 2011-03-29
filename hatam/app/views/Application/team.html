@@ -1,5 +1,5 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'Team' /}
 
 %{
 doc = mentions ? mentions.asXml() : []
@@ -10,11 +10,9 @@ doc = mentions ? mentions.asXml() : []
 <h2>Mentions</h2>
 
 <ul>
-#{list doc.team.flags}
 <li>
-    ${_.leagueName()}
+    ${doc.team.teamName}
 </li>
-#{/list}
 </ul>
 
 

@@ -4,37 +4,10 @@
 
 # Home page
 GET     /                                       Application.index
-GET     /team                                       Application.team
 GET     /auth                                   Application.authenticate
-GET     /achivements                                   Application.achivements
-GET     /arenadetails                                   Application.arenadetails
-GET     /bookmarks                                   Application.bookmarks
-GET     /challenges                                   Application.challenges
-GET     /club                                   Application.club
-GET     /cupmatches                                   Application.cupmatches
-GET     /economy                                   Application.economy
-GET     /fans                                   Application.fans
-GET     /leaguedetails                                   Application.leaguedetails
-GET     /leaguefixtures                                   Application.leaguefixtures
-GET     /live                                   Application.live
-GET     /matches                                   Application.matches
-GET     /matchesarchive                                   Application.matchesarchive
-GET     /matchdetails                                   Application.matchdetails
-GET     /matchlineup                                   Application.matchlineup
-GET     /matchorders                                   Application.matchorders
-GET     /players                                   Application.players
-GET     /playerdetails                                   Application.playerdetails
-GET     /playerevents                                   Application.playerevents
-GET     /regiondetails                                   Application.regiondetails
-GET     /search                                   Application.search
-GET     /training                                   Application.training
-GET     /trainingevents                                   Application.trainingevents
-GET     /transfersteam                                   Application.transfersteam
-GET     /transfersplayer                                   Application.transfersplayer
-GET     /worldlanguages                                   Application.worldlanguages
+GET     /team                                   Application.team
 
 
-POST	/ws/status									Application.setStatus
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

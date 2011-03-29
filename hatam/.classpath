@@ -2,9 +2,8 @@
 <classpath>
 	<classpathentry excluding="views/**" kind="src" path="app"/>
 	<classpathentry kind="src" path="test"/>
-	
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/roger/play-1.1.1/framework/play.jar" sourcepath="/home/roger/play-1.1.1/framework" />
+	<classpathentry kind="lib" path="/home/roger/play-1.1.1/framework/play.jar" sourcepath="/home/roger/play-1.1.1/framework"/>
 	<classpathentry kind="lib" path="/home/roger/play-1.1.1/framework/lib/oval-1.50.jar"/>
 	<classpathentry kind="lib" path="/home/roger/play-1.1.1/framework/lib/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
 	<classpathentry kind="lib" path="/home/roger/play-1.1.1/framework/lib/commons-beanutils-1.8.3.jar"/>
@@ -55,6 +54,6 @@
 	<classpathentry kind="lib" path="/home/roger/play-1.1.1/framework/lib/jta-1.1.jar"/>
 	<classpathentry kind="lib" path="/home/roger/play-1.1.1/framework/lib/commons-collections-3.1.jar"/>
 	<classpathentry kind="lib" path="/home/roger/play-1.1.1/framework/lib/hibernate-entitymanager-3.5.6-Final.jar"/>
-	
+	<classpathentry kind="lib" path="/home/roger/tools/JAXB/JAXB2_20110115.jar"/>
 	<classpathentry kind="output" path="eclipse/classes"/>
 </classpath>
